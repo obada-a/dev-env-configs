@@ -41,13 +41,31 @@ def nvim():
         log.info('Installing neovim plugins')
         os.system('nvim --headless +PlugInstall +qall')
 
+
+def zsh():
+    log.info("Configuring zsh")
+    os.system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
+    oh_my_zsh_themes = f"{home}/.oh-my-zsh/custom/themes"
+    os.system(f"git clone https://github.com/bhilburn/powerlevel9k.git {oh_my_zsh_themes}/powerlevel9k")
+    os.system("git clone https://github.com/ergenekonyigit/lambda-gitster.git")
+    lambda_gister_theme = "lambda-gitster/lambda-gitster.zsh-theme"
+    theme_file = os.path.basename(lambda_gister_theme)
+    shutil.copyfile(lambda_gister_theme, f"{oh_my_zsh_themes}/{theme_file}")
+    shutil.rmtree("lambda-gitster")
+    if cmd_exists('zsh'):
+        zshrc = f"{home}/.zshrc"
+        if os.path.exists(zshrc):
+            os.rename(zshrc, zshrc + '.old')
+        create_symlink(f"{root_dir}/zsh/zshrc", zshrc)
+
+
 def tmux():
     log.info('Configuring Tmux')
     if cmd_exists('tmux'):
         tmux_config = f"{home}/.tmux.conf"
         if os.path.exists(tmux_config):
             os.rename(tmux_config, tmux_config + '.old')
-        create_symlink(f"{root_dir}/tmux/tmux.conf", f"{home}/.tmux.conf")
+        create_symlink(f"{root_dir}/tmux/tmux.conf", tmux_config)
     else:
         log.error("Tmux is not on the PATH")
 
@@ -67,6 +85,11 @@ def git(editor='vim', email=None, user_name=None):
         log.error("git is not on the PATH")
 
 
+def sdkman():
+    log.info('Configuring sdkman')
+    os.system('curl -s "https://get.sdkman.io" | bash')
+
+
 def configure():
     parser = argparse.ArgumentParser()
     parser.add_argument("--email", help="Git Email address")
@@ -77,6 +100,8 @@ def configure():
     nvim()
     tmux()
     git(args.editor, args.email, args.name)
+    sdkman()
+    zsh()
 
 
 if __name__ == "__main__":
