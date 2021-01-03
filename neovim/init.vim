@@ -49,7 +49,8 @@ call plug#end()
 syntax on
 set mouse=a
 colorscheme PaperColor
-set background=light
+"set background=light
+set background=dark
 let g:gruvbox_contrast_light = 'hard'
 
 filetype plugin indent on
@@ -192,6 +193,7 @@ let g:ale_linters = {
 let g:ale_haskell_ghc_options = '-fn0-code -v0 -isrc'
 "
 " Airline
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'papercolor'
 let g:airline_left_sep  = ''
 let g:airline_right_sep = ''
