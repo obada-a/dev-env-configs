@@ -10,7 +10,7 @@ from pathlib import Path
 log.basicConfig(format='%(levelname)s: %(message)s', level=log.INFO)
 
 
-root_dir = os.path.dirname(__file__)
+root_dir = os.path.dirname(os.path.realpath(__file__))
 home = str(Path.home())
 
 
