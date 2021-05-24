@@ -31,11 +31,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Coding
   Plug 'scrooloose/nerdcommenter'
-  Plug 'neovimhaskell/haskell-vim'
-  Plug 'alx741/vim-hindent'
-  Plug 'mpickering/hlint-refactor-vim'
-  " Enables navigating to method definitions
   Plug 'ludovicchabant/vim-gutentags'
+
+  " Haskell
+  Plug 'neovimhaskell/haskell-vim'
+  Plug 'mpickering/hlint-refactor-vim'
+  Plug 'alx741/vim-hindent'
+  " Python
 
   " Autocomplete
   Plug 'zchee/deoplete-jedi'
@@ -147,7 +149,8 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-nnoremap <C-S-f> :Ack<CR>
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-f> :Rg<CR>
 
 " Undo tree
 nnoremap <F5> :UndotreeToggle<cr>
