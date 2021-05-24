@@ -34,6 +34,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neovimhaskell/haskell-vim'
   Plug 'alx741/vim-hindent'
   Plug 'mpickering/hlint-refactor-vim'
+  Plug 'ludovicchabant/vim-gutentags'
 
   " Autocomplete
   Plug 'zchee/deoplete-jedi'
@@ -111,7 +112,7 @@ nnoremap k gk
 
 
 " Tagging
-set tags=./tags,tags;$HOME
+"set tags=./tags,tags;$HOME
 
 " NERDTree Configuration
 " Start NERDTree automatically when no file specified
@@ -132,8 +133,8 @@ let NERDTreeDirArrows = 1           " show directory arrows
 
 
 " Tags
-set tags=.tags
-nnoremap <F8> :TagbarToggle<CR>
+"set tags=.tags
+"nnoremap <F8> :TagbarToggle<CR>
 
 
 " ALE Configuration
