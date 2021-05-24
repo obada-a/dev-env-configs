@@ -34,6 +34,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neovimhaskell/haskell-vim'
   Plug 'alx741/vim-hindent'
   Plug 'mpickering/hlint-refactor-vim'
+  " Enables navigating to method definitions
   Plug 'ludovicchabant/vim-gutentags'
 
   " Autocomplete
