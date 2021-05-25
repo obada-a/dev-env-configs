@@ -6,13 +6,10 @@ import shutil
 import logging as log
 from pathlib import Path
 
-
 log.basicConfig(format='%(levelname)s: %(message)s', level=log.INFO)
-
 
 root_dir = os.path.dirname(os.path.realpath(__file__))
 home = str(Path.home())
-
 
 
 def cmd_exists(cmd):
@@ -35,18 +32,24 @@ def nvim():
     nvim_configs_dst = f"{home}/.config/nvim"
     create_symlink(f"{root_dir}/{nvim_configs}", nvim_configs_dst)
     if cmd_exists('nvim'):
-        vim_plug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' 
+        vim_plug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
         log.info('Installing vim-plug')
-        os.system('curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs ' + vim_plug_url)
+        os.system(
+            'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs '
+            + vim_plug_url)
         log.info('Installing neovim plugins')
         os.system('nvim --headless +PlugInstall +qall')
 
 
 def zsh():
     log.info("Configuring zsh")
-    os.system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
+    os.system(
+        'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+    )
     oh_my_zsh_themes = f"{home}/.oh-my-zsh/custom/themes"
-    os.system(f"git clone https://github.com/bhilburn/powerlevel9k.git {oh_my_zsh_themes}/powerlevel9k")
+    os.system(
+        f"git clone https://github.com/bhilburn/powerlevel9k.git {oh_my_zsh_themes}/powerlevel9k"
+    )
     os.system("git clone https://github.com/ergenekonyigit/lambda-gitster.git")
     lambda_gister_theme = "lambda-gitster/lambda-gitster.zsh-theme"
     theme_file = os.path.basename(lambda_gister_theme)
@@ -72,11 +75,8 @@ def tmux():
 
 def git(editor='vim', email=None, user_name=None):
     log.info('Configuring git')
-    git_properties = [
-              ('core.editor', editor),
-              ('user.email', email),
-              ('user.name', user_name)
-            ]
+    git_properties = [('core.editor', editor), ('user.email', email),
+                      ('user.name', user_name)]
     if cmd_exists('git'):
         for property, value in git_properties:
             if value:

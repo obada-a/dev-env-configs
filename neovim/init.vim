@@ -18,9 +18,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   
   " Code visualisation
   Plug 'Yggdroot/indentLine'
+  Plug 'sheerun/vim-polyglot'
 
   " Syntax check
   Plug 'w0rp/ale'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'hashivim/vim-terraform'
   Plug 'stephpy/vim-yaml'
 
@@ -37,8 +39,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neovimhaskell/haskell-vim'
   Plug 'mpickering/hlint-refactor-vim'
   Plug 'alx741/vim-hindent'
-  " Python
-
   " Autocomplete
   Plug 'zchee/deoplete-jedi'
   Plug 'davidhalter/jedi-vim'
@@ -140,9 +140,6 @@ let NERDTreeDirArrows = 1           " show directory arrows
 "nnoremap <F8> :TagbarToggle<CR>
 
 
-" ALE Configuration
-nnoremap <leader><C-l> :ALEFix<CR>
-
 
 " Ack configuration
 if executable('ag')
@@ -185,6 +182,7 @@ let g:jedi#use_splits_not_buffers = "right"
 let g:neomake_python_enabled_makers = ['pylint']
 let g:neomake_haskell_enabled_markers = ['hlint']
 
+
 " ALE configuration
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -192,10 +190,20 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
-\ 'python': ['flake8', 'pylint'],
-\ 'haskell': ['hlint', 'ghc']
-\}
+    \ 'python': ['flake8', 'pylint'],
+    \ 'haskell': ['hlint', 'ghc']
+    \}
 let g:ale_haskell_ghc_options = '-fn0-code -v0 -isrc'
+let g:ale_fixers = {
+    \   'python': ['yapf']
+    \}
+let g:ale_fix_on_save = 1
+" ALE Configuration
+nnoremap <leader><C-l> :ALEFix<CR>
+
+let g:coc_global_extensions = ['coc-pyright']
+
+
 "
 " Airline
 let g:airline_powerline_fonts = 1
