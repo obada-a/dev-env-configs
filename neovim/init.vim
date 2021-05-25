@@ -207,7 +207,7 @@ let g:ale_fix_on_save = 1
 " ALE Configuration
 nnoremap <leader><C-l> :ALEFix<CR>
 
-let g:coc_global_extensions = ['coc-pyright']
+let g:coc_global_extensions = ['coc-pyright', 'coc-go']
 
 
 "
