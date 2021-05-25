@@ -15,6 +15,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'NLKNguyen/papercolor-theme'
+  Plug 'junegunn/seoul256.vim'
+  Plug 'joshdick/onedark.vim'
+  
   
   " Code visualisation
   Plug 'Yggdroot/indentLine'
@@ -52,7 +55,10 @@ call plug#end()
 
 syntax on
 set mouse=a
-colorscheme PaperColor
+"colorscheme PaperColor
+"colorscheme seoul256
+colorscheme onedark
+"let g:seoul256_background = 235
 "set background=light
 set background=dark
 let g:gruvbox_contrast_light = 'hard'
@@ -207,7 +213,9 @@ let g:coc_global_extensions = ['coc-pyright']
 "
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'papercolor'
+"let g:airline_theme = 'papercolor'
+"let g:airline_theme = 'seoul256'
+let g:airline_theme = 'onedark'
 let g:airline_left_sep  = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#ale#enabled = 1
