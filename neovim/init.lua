@@ -1,0 +1,6 @@
+require('plugins')
+require('keymappings')
+require('nv-cmp')
+require('lsp.lua-ls')
+require('settings')
+require('colorscheme')
