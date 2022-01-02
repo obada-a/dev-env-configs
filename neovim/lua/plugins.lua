@@ -8,16 +8,18 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-treesitter/playground'
+  use 'p00f/nvim-ts-rainbow'
   
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require'nvim-tree'.setup {} end
+    }
   }
-
+  -- using packer.nvim
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -39,14 +41,23 @@ return require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
-
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   use 'joshdick/onedark.vim'
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'unblevable/quick-scope'
 
-  use 'machakann/vim-highlightedyank'
+  -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use 'windwp/nvim-autopairs'
+
 
   if packer_bootstrap then
     require('packer').synch()
