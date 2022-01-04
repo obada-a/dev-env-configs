@@ -47,8 +47,8 @@ vim.o.backup  =  false
 vim.o.writebackup = false
 vim.o.signcolumn = 'yes'                -- Always show the signcolumn, otherwise it would shift the text each time
 vim.o.updatetime = 300                  -- Faster completion
-vim.o.timeoutlen = 100                  -- By default timeoutlen is 1000 ms
--- vim.o.clipboard = '+=unnamedplus'       -- Copy paste between vim and everything else
+vim.o.timeoutlen = 500                  -- By default timeoutlen is 1000 ms
+vim.o.clipboard = 'unnamedplus'       -- Copy paste between vim and everything else
 vim.o.guifont = 'Hack'
 
 
@@ -60,3 +60,9 @@ vim.o.termguicolors = true
 -- Search config
 vim.o.incsearch = true              -- seach as characters are entered
 vim.o.hlsearch  = true              -- highlight matches
+
+
+-- Spelling
+vim.o.spell = true
+vim.o.spelllang = 'en'
+vim.o.spellsuggest = 'best,9'

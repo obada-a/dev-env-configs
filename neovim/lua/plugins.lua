@@ -12,43 +12,40 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/playground'
   use 'p00f/nvim-ts-rainbow'
-  
+  use 'nvim-treesitter/nvim-treesitter-refactor'
+
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    }
+    'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-  -- using packer.nvim
-  use 'neovim/nvim-lspconfig'
+  -- Autocompletion
+  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-  use 'glepnir/lspsaga.nvim'
+  use 'saadparwaiz1/cmp_luasnip'
 
-  use 'glepnir/galaxyline.nvim'
-  use 'onsails/lspkind-nvim'
-  use 'kosayoda/nvim-lightbulb'
-  use 'mfussenegger/nvim-jdtls'
-  use 'mfussenegger/nvim-dap'
+  -- Status
+--  use 'glepnir/galaxyline.nvim'
+  use {
+    'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   -- Telescope
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
+  -- Theme
   use 'joshdick/onedark.vim'
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'unblevable/quick-scope'
 
-  -- Git
+  -- Git 
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -56,8 +53,25 @@ return require('packer').startup(function()
     }
   }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use 'windwp/nvim-autopairs'
 
+  -- CODING --------------------------------- 
+  -- generic
+  use 'windwp/nvim-autopairs'
+  use 'onsails/lspkind-nvim'
+  use 'kosayoda/nvim-lightbulb'
+  use 'numToStr/Comment.nvim'
+  -- java
+  use 'mfussenegger/nvim-jdtls'
+  -- Rust
+  use 'simrat39/rust-tools.nvim'
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
+  ------------------------------------------- 
+
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+  use 'L3MON4D3/LuaSnip'
+  use 'glepnir/lspsaga.nvim'
 
   if packer_bootstrap then
     require('packer').synch()
