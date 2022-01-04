@@ -12,6 +12,10 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w><C-h>', { silent = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 
+
+-- Folding
+vim.api.nvim_set_keymap('n', '<space>', 'za', { noremap = true, silent = true })
+
 -- turn off search highlights
 vim.api.nvim_set_keymap('n', '<Leader><space>', ':nohlsearch<CR>', { noremap = true, silent = true })
 -- Toggle highlights

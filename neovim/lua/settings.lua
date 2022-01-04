@@ -53,16 +53,23 @@ vim.o.guifont = 'Hack'
 
 
 -- Theme
--- vim.o.t_Co = '256'   
+vim.o.t_Co = '256'
 vim.o.background = 'dark'
 vim.o.termguicolors = true
+vim.o.listchars = 'tab:→\\ ,trail:␣,extends:…,eol:⏎'      
+vim.o.list = true
 
 -- Search config
 vim.o.incsearch = true              -- seach as characters are entered
 vim.o.hlsearch  = true              -- highlight matches
 
-
 -- Spelling
 vim.o.spell = true
 vim.o.spelllang = 'en'
 vim.o.spellsuggest = 'best,9'
+
+-- Folding
+vim.o.foldlevelstart = 10
+vim.foldnestmax = 10
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
