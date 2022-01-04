@@ -6,7 +6,6 @@ require('colorscheme')
 -- Plugins
 require('nv-cmp')
 require('nv-colorizer')
--- require('nv-galaxyline')
 require('nv-lualine')
 require('nv-bufferline')
 require('nv-nvimtree')
