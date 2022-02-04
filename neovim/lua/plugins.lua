@@ -42,6 +42,9 @@ return require('packer').startup(function()
   -- Theme
   use 'joshdick/onedark.vim'
   use 'arcticicestudio/nord-vim'
+  use 'sjl/badwolf'
+  use 'jacoborus/tender'
+  use 'gosukiwi/vim-atom-dark'
   use 'norcalli/nvim-colorizer.lua'
   use 'kevinhwang91/nvim-bqf'
   use 'unblevable/quick-scope'
