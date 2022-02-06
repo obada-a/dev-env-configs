@@ -17,5 +17,7 @@ require('nv-rusttools')
 require('nv-comment')
 
 -- LSP
+-- require('lsp')
 require('lsp.lua-ls')
 require('lsp.python-ls')
+-- require('lsp.rust-ls')
