@@ -10,8 +10,15 @@ vim.o.smarttab = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 
--- vim.o.shortmess = '+=c'                 -- Don't pass messages to |in-completion-menu|.
--- vim.o.iskeyword = '+=-'                 -- treat dash separated words as a word text object
+-- Set completeopt to have a better completion experience
+-- :help completeopt
+-- menuone: popup even when there's only one match
+-- noinsert: Do not insert text until a selection is made
+-- noselect: Do not select, force user to select one from the menu
+vim.o.completeopt='menuone,noinsert,noselect'
+--vim.o.shortmess='+=c'
+--vim.o.iskeyword = '+=-'                 -- treat dash separated words as a word text object
+
 
 
 -- better backspace
@@ -50,7 +57,6 @@ vim.o.updatetime = 300                  -- Faster completion
 vim.o.timeoutlen = 500                  -- By default timeoutlen is 1000 ms
 vim.o.clipboard = 'unnamedplus'       -- Copy paste between vim and everything else
 vim.o.guifont = 'Hack'
-
 
 -- Theme
 vim.o.t_Co = '256'

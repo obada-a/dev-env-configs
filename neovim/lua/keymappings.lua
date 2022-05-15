@@ -38,3 +38,8 @@ vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', { noremap = true, sile
 -- Move selected line / block of text in visual (https://vim.fandom.com/wiki/Moving_lines_up_or_down)
 vim.api.nvim_set_keymap('v', 'K', ':move \'<-2<CR>gv=gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'J', ':move \'>+1<CR>gv=gv', { noremap = true, silent = true })
+
+
+-- File refresh
+vim.api.nvim_set_keymap('n', '<Leader>r', ':edit<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ri', ':edit!<CR>', { noremap = true, silent = true })
