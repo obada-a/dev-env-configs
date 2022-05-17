@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = {"lua", "rust", "python", "go"},
+    ensure_installed = {"lua", "rust", "python", "go", "hcl"},
 
     -- Install languages synchronously (only applied to `ensure_installed`)
     sync_install = false,
