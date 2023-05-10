@@ -98,9 +98,9 @@ def configure():
     args = parser.parse_args()
     log.info('Configuration start')
     nvim()
-    tmux()
-    git(args.editor, args.email, args.name)
-    sdkman()
+    #tmux()
+    #git(args.editor, args.email, args.name)
+    #sdkman()
     zsh()
 
 

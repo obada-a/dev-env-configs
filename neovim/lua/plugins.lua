@@ -10,10 +10,18 @@ return require('packer').startup(function()
 
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
-  use 'p00f/nvim-ts-rainbow'
-  use 'nvim-treesitter/nvim-treesitter-refactor'
-
+  --use 'nvim-treesitter/playground'
+  --use 'p00f/nvim-ts-rainbow'
+  --use 'nvim-treesitter/nvim-treesitter-refactor'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end
+  }
   use {
     'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
@@ -62,12 +70,13 @@ return require('packer').startup(function()
   use 'onsails/lspkind-nvim'
   use 'kosayoda/nvim-lightbulb'
   use 'numToStr/Comment.nvim'
-  -- java
-  use 'mfussenegger/nvim-jdtls'
   -- Rust
   use 'simrat39/rust-tools.nvim'
-  -- Debugging
-  use 'mfussenegger/nvim-dap'
+  -- Python
+  use 'ambv/black'
+
+  -- C#
+  use 'OmniSharp/omnisharp-vim'
   ------------------------------------------- 
 
   -- LSP

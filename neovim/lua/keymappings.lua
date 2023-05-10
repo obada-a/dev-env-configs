@@ -43,3 +43,8 @@ vim.api.nvim_set_keymap('v', 'J', ':move \'>+1<CR>gv=gv', { noremap = true, sile
 -- File refresh
 vim.api.nvim_set_keymap('n', '<Leader>r', ':edit<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ri', ':edit!<CR>', { noremap = true, silent = true })
+
+
+-- Git 
+vim.api.nvim_set_keymap('n', '<Leader>g', ':GitBlameToggle<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>gu', ':GitBlameOpenCommitURL<CR>', { noremap = true, silent = true})
