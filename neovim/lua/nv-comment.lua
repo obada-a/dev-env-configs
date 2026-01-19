@@ -5,7 +5,7 @@ require('Comment').setup {
     },
     mappings = {
         -- Includes:
-        --  gcc --> line-comment the current line
+         -- gcc --> line-comment the current line
         --  gcb --> block-comment the current line
         --  gc[count]{motion} -> line-comment the region contained in {motion}
         --  gb[count]{motion} -> block-comment the region contained in {motion}

@@ -56,10 +56,10 @@ vim.o.signcolumn = 'yes'                -- Always show the signcolumn, otherwise
 vim.o.updatetime = 300                  -- Faster completion
 vim.o.timeoutlen = 500                  -- By default timeoutlen is 1000 ms
 vim.o.clipboard = 'unnamedplus'       -- Copy paste between vim and everything else
-vim.o.guifont = 'Hack'
+vim.o.guifont = 'JetBrainsMono'
 
 -- Theme
-vim.o.t_Co = '256'
+-- vim.o.t_Co = '256'
 vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.o.listchars = 'tab:→\\ ,trail:␣,extends:…,eol:⏎'      

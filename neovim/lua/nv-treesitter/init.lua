@@ -1,12 +1,33 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
     -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-    ensure_installed = {"lua","rust", "python", "go", "hcl", "c_sharp"},
+    ensure_installed = {
+        "ssh_config",
+        "elixir",
+        "sql",
+        "make",
+        "java",
+        "dockerfile",
+        "bash",
+        "haskell",
+        "lua",
+        "rust",
+        "python",
+        "go",
+        "hcl",
+        "c_sharp",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "json",
+        "toml",
+        "json",
+    },
 
-    -- Install languages synchronously (only applied to `ensure_installed`)
-    sync_install = false,
+    sync_install = true,
+    auto_install = true,
 
     highlight = {
-      -- `false` will disable the whole extension
       enable = true,
       additional_vim_regex_highlighting = false,
     },
@@ -30,10 +51,32 @@ require'nvim-treesitter.configs'.setup {
               },
         },
     },
+    indent = {
+        enable = true,
+    },
     rainbow = {
         enable = true,
         extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
         max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    },
+    textobjects = {
+      select = {
+        enable = true,
+        lookahead = true,
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ac"] = "@class.outer",
+          ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+          ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+        },
+        selection_modes = {
+          ['@parameter.outer'] = 'v', -- charwise
+          ['@function.outer'] = 'V', -- linewise
+          ['@class.outer'] = '<c-v>', -- blockwise
+        },
+        include_surrounding_whitespace = true,
+      },
     },
     playground = {
         enable = true,

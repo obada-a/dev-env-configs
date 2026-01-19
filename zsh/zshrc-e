@@ -133,8 +133,4 @@ source "$ZSH_SYNTAX_HIGHLIGHTING/zsh-syntax-highlighting.zsh"
 
 alias luamake=/home/$(whoami)/Work/tools/lua-language-server/3rd/luamake/luamake
 
-
-[ -f "/Users/obadalex/.ghcup/env" ] && source "/Users/obadalex/.ghcup/env" # ghcup-env
-
-# Added by Antigravity
-export PATH="/Users/obadalex/.antigravity/antigravity/bin:$PATH"
+eval $(thefuck --alias)
